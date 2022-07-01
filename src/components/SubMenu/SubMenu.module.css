@@ -1,0 +1,50 @@
+.submenu {
+	width: 240px;
+}
+
+.submenuTitle {
+    margin: 24px 24px 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #afb6c6;
+}
+
+.submenuList {
+	margin: 0 24px;
+}
+
+.submenuListItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+	margin-bottom: 20px;
+}
+
+.listItemImg {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.listItemText {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    /* display: flex;
+    align-items: center; */
+    color: #1e212a;
+}
+
+.listSubmenuItem {
+    font-size: 13px;
+    line-height: 120%;
+    /* display: flex;
+    align-items: center; */
+    color: #1E212A;
+}
+
+.active {
+    color: #00a0ec;
+}
