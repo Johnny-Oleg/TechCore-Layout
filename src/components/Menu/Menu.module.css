@@ -1,60 +1,30 @@
 .menu {
-    max-width: 100px;
-	height: 100%;
+    max-width: 101px;
+	/* height: 100vh; */
+	display: flex;
+	flex-direction: column;
     background-color: #f5f9fe;
+	border-right: 1px solid rgba(46, 91, 255, 0.1);
+	position: relative;
 }
 
 .menuLogo {
     max-width: 34px;
     max-height: 34px;
     margin: 24px 33px 60px;
-}
-
-.navbar {
-    margin: 0 15px 168px;
-}
-
-.navbarMenu {
-    max-width: 70px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 40px;
-}
-
-.navbarMenuItem {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	gap: 7.62px;
-}
-
-.menuItemImg {
-    max-width: 20px;
-    max-height: 20px;
-}
-
-.menuItemText {
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 120%;
-    color: #afb6c6;
+	cursor: pointer;
 }
 
 .menuBell {
 	max-width: 16px;
 	max-height: 16px;
-	margin: 0 auto;
+	margin: auto auto 24px;
+	cursor: pointer;
 }
 
 .menuAvatar {
 	max-width: 34px;
 	max-height: 34px;
-	margin: 24px 33px;
-}
-
-.active {
-	color: #00A0EC;
+	margin: 0 33px 24px;
+	cursor: pointer;
 }

@@ -1,0 +1,19 @@
+.simpleAvatar {
+    width: 34px;
+    height: 34px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    background-color: #00a0ec;
+	border-radius: 50%;
+}
+
+.simpleAvatarName,
+.simpleAvatarSurname {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+}

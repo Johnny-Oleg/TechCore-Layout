@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Menu from './components/Menu/Menu';
-import SubMenu from './components/SubMenu/SubMenu';
 import './App.css';
 
 const App = () => {
@@ -10,7 +9,6 @@ const App = () => {
             <div className="container">
                 <div className="appWrapper">
                     <Menu />
-                    <SubMenu />
                 </div>
             </div>
         </div>

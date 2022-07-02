@@ -47,6 +47,7 @@ a {
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
+    text-decoration: none;
 }
 
 /* change colours to suit your needs */
@@ -165,6 +166,10 @@ body {
     max-width: 1396px;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+#root {
+    min-height: 100vh;
 }
 
 /* body {

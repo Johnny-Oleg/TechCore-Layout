@@ -1,8 +1,17 @@
 .app {
-   height: 100vh;
+   min-height: 100%;
 }
 
 .appWrapper {
     height: 100%;
+    min-height: 100vh;
     display: flex;
+}
+
+.active p {
+    color: #00A0EC;
+}
+
+.active img svg path {
+    fill: #00A0EC;
 }
