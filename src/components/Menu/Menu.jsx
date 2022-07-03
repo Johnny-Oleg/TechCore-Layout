@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import MenuNavbar from '../MenuNavbar/MenuNavbar';
-import Avatar from '../ui/Avatar';
+import MenuNavbar from '../ui/MenuNavbar/MenuNavbar';
+import Avatar from '../ui/Avatar/Avatar';
 import logo from '../../assets/images/techcore-logo.svg';
 import notifications from '../../assets/images/notfications.svg';
 import avatar from '../../assets/images/menu-avatar.svg';

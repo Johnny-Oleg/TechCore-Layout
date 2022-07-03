@@ -5,7 +5,7 @@
 	flex-direction: column;
     background-color: #f5f9fe;
 	border-right: 1px solid rgba(46, 91, 255, 0.1);
-	position: relative;
+	/* position: relative; */
 }
 
 .menuLogo {

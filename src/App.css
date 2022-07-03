@@ -6,12 +6,10 @@
     height: 100%;
     min-height: 100vh;
     display: flex;
+    /* position: relative; */
 }
 
-.active p {
+.active p,
+.active span {
     color: #00A0EC;
-}
-
-.active img svg path {
-    fill: #00A0EC;
 }
