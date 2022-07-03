@@ -6,6 +6,7 @@ import style from './General.module.css';
 
 const General = () => {
     const [props, setProps] = useOutletContext();
+    const { name, icon } = props;
 
     return (
         <div className={style.content}>
@@ -13,12 +14,12 @@ const General = () => {
                 <div className={style.mainLocation}>
                     <img
                         className={style.mainLocationIcon}
-                        src={props.icon}
+                        src={icon}
                         alt="icon"
                     />
-                    <NavLink to="/settings">
+                    <NavLink to={`/${name.toLowerCase()}`}>
                         <span className={style.mainLocationTitle}>
-                            {props.name}
+                            {name}
                         </span>
                     </NavLink>
                     <img
@@ -26,14 +27,14 @@ const General = () => {
                         src={shape}
                         alt="arrow-right"
                     />
-                    <NavLink to="/settings/general">
+                    <NavLink to={`/${name.toLowerCase()}/general`}>
                         <span className={style.mainLocationSubtitle}>
                             General
                         </span>
                     </NavLink>
                 </div>
             </header>
-            {/* <Outlet /> */}
+            <Outlet />
         </div>
     )
 }

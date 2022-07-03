@@ -6,6 +6,7 @@ import style from './VacationManager.module.css';
 
 const VacationManager = () => {
     const [props, setProps] = useOutletContext();
+    const { name, icon } = props;
     
 	return (
         <div className={style.content}>
@@ -13,12 +14,12 @@ const VacationManager = () => {
                 <div className={style.mainLocation}>
                     <img
                         className={style.mainLocationIcon}
-                        src={props.icon}
+                        src={icon}
                         alt="icon"
                     />
-                    <NavLink to="/settings">
+                    <NavLink to={`/${name.toLowerCase()}`}>
                         <span className={style.mainLocationTitle}>
-                            {props.name}
+                            {name}
                         </span>
                     </NavLink>
                     <img
@@ -26,7 +27,7 @@ const VacationManager = () => {
                         src={shape}
                         alt="arrow-right"
                     />
-                    <NavLink to="/settings/manager">
+                    <NavLink to={`/${name.toLowerCase()}/manager`}>
                         <span className={style.mainLocationSubtitle}>
                             Vacation Manager
                         </span>

@@ -11,7 +11,7 @@ const SubMenu = () => {
     return (
         <ul className={style.submenuList}>
             <li className={style.submenuListItem}>
-                <NavLink to="general">
+                <NavLink to="general/subgeneral">
                     {({ isActive }) => (
                         <>
                             <img

@@ -2,11 +2,12 @@
 	display: flex;
 	flex-direction: column;
 	flex: 2 0 auto;
-	padding: 24px;
+	padding: 24px 42px 24px 39px;
 }
 
 .header {
 	align-self: flex-start;
+    margin-bottom: 8px;
 }
 
 .mainLocation {
