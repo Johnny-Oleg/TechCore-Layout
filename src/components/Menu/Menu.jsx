@@ -27,7 +27,9 @@ const Menu = () => {
                 {user.avatar ? (
                     <img src={user.avatar} alt="avatar" />
                 ) : (
-                    <Avatar user={user} />
+                    <div className={style.avatarWrapper}>
+                        <Avatar user={user} />
+                    </div>
                 )}
             </div>
         </div>

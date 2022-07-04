@@ -1,0 +1,121 @@
+.card {
+    width: 304px;
+    height: 173px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    border-radius: 6px !important;
+    box-shadow: 2px 2px 15px rgba(0, 44, 175, 0.05);
+    transition: all 0.3s ease-in-out;
+    border: 0.7px solid rgba(175, 182, 198, 0.4);
+    /* border-image-source: linear-gradient(0deg, rgba(175, 182, 198, 0.4),rgba(175, 182, 198, 0.4)); */
+    /* border-image-source: linear-gradient(0deg, rgba(175, 182, 198, 0.4),rgba(175, 182, 198, 0.4)),
+        linear-gradient(0deg, #ffffff, #ffffff); */
+}
+
+.card:hover {
+    box-shadow: 0px 8px 28px rgba(0, 0, 0, 0.05),
+        2px 2px 15px rgba(0, 44, 175, 0.05);
+}
+
+.cardTop {
+    max-height: 21px;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.cardTopTitle {
+    font-size: 15px;
+    line-height: 140%;
+    font-weight: 600;
+    color: #1e212a;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.cardTopTitle:hover {
+    color: #00a0ec;
+}
+
+.cardTopStatus {
+    max-width: 72px;
+    max-height: 20px;
+    display: flex;
+    padding: 3px 14px;
+    background: #00a0ec;
+    border-radius: 10px;
+    /* transform: rotate(-180deg); */
+}
+
+.cardTopStatus span {
+    margin: auto;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.cardInner {
+    margin-bottom: 16px;
+}
+
+.cardInnerTop {
+    margin-bottom: 10px;
+}
+
+.cardInnerTop,
+.cardInnerBottom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+}
+
+.innerTopText,
+.innerBottomText {
+    width: 91px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #1e212a;
+}
+
+.innerTopLink,
+.innerBottomLink {
+    font-size: 13px;
+    line-height: 16px;
+    color: #00a0ec;
+    transition: all 0.3s ease-in-out;
+}
+
+:is(.innerTopLink, .innerBottomLink):hover {
+    text-decoration: underline;
+}
+
+.cardUsers {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.cardUsersLength {
+	margin-left: 4px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #00A0EC;
+}
+
+.cardUserAvatar {
+    max-width: 30px;
+    max-height: 30px;
+    cursor: pointer;
+}
+
+.avatarWrapper {
+	width: 30px;
+	height: 30px;
+}

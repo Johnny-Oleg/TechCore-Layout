@@ -28,3 +28,8 @@
 	margin: 0 33px 24px;
 	cursor: pointer;
 }
+
+.avatarWrapper {
+	width: 34px;
+	height: 34px;
+}
