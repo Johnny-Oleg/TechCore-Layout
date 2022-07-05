@@ -36,4 +36,13 @@ export const data = [
             { userId: 6, name: 'Henry', surname: 'Mac', avatar: null },
         ] 
     },
+    { id: 4, name: 'Japan', default: false, users: [
+            { userId: 1, name: 'And', surname: 'Yes', avatar: avatarFirst },
+            { userId: 2, name: 'Bill', surname: 'Shit', avatar: null },
+            { userId: 3, name: 'Test', surname: 'User', avatar: avatarSecond },
+            { userId: 4, name: 'Nin', surname: 'Tendo', avatar: avatarFirst },
+            { userId: 5, name: 'Play', surname: 'Station', avatar: avatarThird },
+            { userId: 6, name: 'Henry', surname: 'Mac', avatar: null },
+        ] 
+    },
 ]

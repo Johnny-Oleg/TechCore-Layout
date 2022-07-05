@@ -15,13 +15,18 @@ export const locationsSlice = createSlice({
         fetchLocations: (state, action) => {
             state.locations = [...state.locations, ...action.payload];
         },
+		deleteLocation: (state, action) => {
+			state.locations = [...state.locations
+				.filter(loc => loc.id !== action.payload)];
+		}
     },
 })
 
 export const {
     fetchLocations,
     addLocation,
-    editLocation
+    editLocation,
+	deleteLocation,
 } = locationsSlice.actions;
 
 export default locationsSlice.reducer;

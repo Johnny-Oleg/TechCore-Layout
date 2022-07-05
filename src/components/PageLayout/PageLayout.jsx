@@ -4,7 +4,7 @@ import { Col, Layout, Row } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
 // import Card from 'antd/lib/card/Card';
 
-import Card from '../ui/Card/Card';
+import Card from '../../components/Card/Card';
 import style from './PageLayout.module.css';
 
 const PageLayout = () => {
@@ -13,11 +13,11 @@ const PageLayout = () => {
 	return (
 		<div>
 			<Layout style={{backgroundColor: '#FFFFFF'}}>
-				<Content>
+				<Content className="contentWrapper">
 					<Row gutter={[16, 16]}>
 						{
-							locations.map(loc => (
-								<Col key={loc.id}>
+							locations.map(location => (
+								<Col xs={24} sm={12} md={8} xl={8} xxl={6} key={location.id}>
 									{/* <Card 
 										className={style.card}
 										title={loc.name}
@@ -36,7 +36,7 @@ const PageLayout = () => {
 									>
 										
 									</Card> */}
-									<Card loc={loc} key={loc.id} />
+									<Card location={location} key={location.id} />
 								</Col>
 							))
 						}

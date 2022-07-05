@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 12px;
     border-radius: 6px !important;
     box-shadow: 2px 2px 15px rgba(0, 44, 175, 0.05);
@@ -103,10 +103,10 @@
 }
 
 .cardUsersLength {
-	margin-left: 4px;
+    margin-left: 4px;
     font-size: 14px;
     line-height: 16px;
-    color: #00A0EC;
+    color: #00a0ec;
 }
 
 .cardUserAvatar {
@@ -116,6 +116,35 @@
 }
 
 .avatarWrapper {
-	width: 30px;
-	height: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.dropButton {
+    margin-top: -8px;
+    margin-right: -10px;
+    margin-left: auto;
+}
+
+.dropButton button {
+    border-radius: 6px;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.dropButton button:hover,
+.dropButton button:focus
+ {
+    background-color: #EEF7fC;
+    border-radius: 6px !important;
+    border-color: transparent;
+}
+
+.dropButton button span {
+    color: #AFB6C6;;
+    transform: rotate(90deg);
+}
+
+.ant-modal-confirm .ant-modal-confirm-btns button {
+    display: none;
 }

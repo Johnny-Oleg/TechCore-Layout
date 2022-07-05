@@ -9,6 +9,10 @@
     /* position: relative; */
 }
 
+.contentWrapper {
+    width: 946px;
+}
+
 .active p,
 .active span {
     color: #00A0EC;
