@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     padding: 16px 21px 16px 24px;
     background-color: #f6f7fb;
     border-bottom: 1px solid #eef0f6;
@@ -26,7 +26,7 @@
 }
 
 .popupModalInner {
-    padding: 0 40px 24px;
+    padding: 0 40px;
 	text-align: left;
 }
 
@@ -35,6 +35,11 @@
     font-size: 14px;
     line-height: 150%;
     mix-blend-mode: normal;
+    color: #1E212A;
+}
+
+.innerContentText {
+    margin-left: 28px;
 }
 
 .modalInnerContent {

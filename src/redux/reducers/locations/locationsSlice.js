@@ -15,6 +15,12 @@ export const locationsSlice = createSlice({
         fetchLocations: (state, action) => {
             state.locations = [...state.locations, ...action.payload];
         },
+        setStatusLocation: (state, action) => {
+            state.locations = [...state.locations]
+                .map(loc => loc.id === action.payload ?
+                    { ...loc, default: !loc.default } : loc
+                )
+        },
 		deleteLocation: (state, action) => {
 			state.locations = [...state.locations
 				.filter(loc => loc.id !== action.payload)];
@@ -26,6 +32,7 @@ export const {
     fetchLocations,
     addLocation,
     editLocation,
+    setStatusLocation,
 	deleteLocation,
 } = locationsSlice.actions;
 

@@ -211,6 +211,19 @@ li.ant-dropdown-menu-item .ant-dropdown-menu-title-content {
 .ant-modal-header {
     border-radius: 12px;
 }
+
+.ant-modal-close-x .popupIconModal {
+    margin-left: auto;
+    margin-right: 21px;
+}
+
+.ant-modal-confirm-body .popupIconModal {
+    width: 16px !important;
+    height: 16px !important;
+    position: absolute;
+    top: 111px;
+    left: 40px;
+}
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

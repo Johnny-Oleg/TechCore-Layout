@@ -2,16 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Dropdown, Menu, Modal } from 'antd';
 
+import { setStatusLocation } from '../../redux/reducers/locations/locationsSlice';
+import { deleteLocation } from '../../redux/reducers/locations/locationsSlice';
 import { useSplitUsers } from '../../hooks/useSplitUsers';
 import Avatar from '../ui/Avatar/Avatar';
 import PopupIcon from '../ui/PopupIcon/PopupIcon';
-import PopupModal from '../ui/PopupModal/PopupModal';
+import PopupModalHeader from '../ui/PopupModal/PopupModalHeader';
+import PopupModalContent from '../ui/PopupModal/PopupModalContent';
 import editIcon from '../../assets/images/popup-icons/edit.svg';
 import starIcon from '../../assets/images/popup-icons/star.svg';
 import warningIcon from '../../assets/images/popup-icons/warning.svg';
 import deleteIcon from '../../assets/images/popup-icons/delete.svg';
+import closeIcon from '../../assets/images/popup-icons/close.svg';
 import style from './Card.module.css';
-import { deleteLocation } from '../../redux/reducers/locations/locationsSlice';
 
 const Card = ({ location }) => {
     const [loc, setLoc] = useState(location);
@@ -27,46 +30,29 @@ const Card = ({ location }) => {
         console.log(location, 'loc');
       }
     }, [location])
+
+    const setStatusConfirm = loc => dispatch(setStatusLocation(loc.id));
     
-	//const usersClone = structuredClone(loc.users);
-
-	//if (loc.name === 'USA' && loc.id === 3) usersClone.length = 82; // 👈 mockup users
-
-	// const usersToShow = usersClone
-	// 	.filter(user => user.userId <= 8 - String(usersClone.length).length);
-	
-	// const splitUsers = users => {                      // 👈 max users to show
-    //     const index = String(users.length).length;
-
-	// 	if (users.length <= 7 ) return users.splice(0);
-
-	// 	if (users.length > 7 && users.length <= 16) {
-	// 		return users.splice(0, 9 - index);
-	// 	}
-
-    //     if (index >= 6) return users.splice(0, 5);
-
-	// 	return users.splice(0, 8 - index);	
-	// }
-
-	//const usersToShow = splitUsers(usersClone);
-
     const showDeleteConfirm = loc => {
         confirm({
-            modalRender: PopupModal,
-            title: 'Delete Location',
-            icon: <PopupIcon icon={warningIcon} />,
-            content: `Are you sure want to delete “${loc.name}” Location? 
-                        Deleting a location might impact the users' configuration and leave information (e.g. the initial brought forward days).`,
+            title: <PopupModalHeader title="Delete Location" />,
+            icon: <PopupIcon className="popupIconModal" icon={warningIcon} />,
+            content: <PopupModalContent loc={loc} />,
+            closeIcon: <PopupIcon icon={closeIcon} />,
             okText: 'Yes, Delete',
             okType: 'danger',
             centered: true,
             closable: true,
             confirmLoading: true,
             width: '460px',
-            maskStyle: {backgroundColor: '#242C48', opacity: '0.3'},
-            cancelButtonProps: {disabled: true, style: {display: 'none'}},
-            // cancelText: 'No',
+            // maskStyle: {backgroundColor: '#242C48', opacity: '0.3'},
+            okButtonProps: {style: {
+                width: '119px', height: '40px', borderRadius: '6px',
+                backgroundColor: '#F24445', color: '#FFFFFF', fontSize: '13px',
+                fontWeight: '600', lineHeight: '16px', marginRight: '40px'
+
+            }},
+            cancelButtonProps: {style: {display: 'none'}},
 
             onOk() {
                 dispatch(deleteLocation(loc.id))
@@ -78,31 +64,23 @@ const Card = ({ location }) => {
             },
 
             bodyStyle: {
-                width: '460px',
-                height: '262px',
-                padding: '0 40px 24px',
-                borderRadius: '12px',
-                boxShadow: `0px 8px 28px rgba(0, 0, 0, 0.05), 
-                        2px 2px 15px rgba(0, 44, 175, 0.05)`,
-
+                width: '460px', height: '262px', padding: '0', borderRadius: '12px', 
+                boxShadow: `0px 8px 28px rgba(0, 0, 0, 0.05), 2px 2px 15px rgba(0, 44, 175, 0.05)`,
             }
         })
     }
 
-    const handleMenuClick = loc => {
-        showDeleteConfirm(loc);
-        console.log(loc);
+    const handleMenuClick = (loc, key) => {
+        // key === '1' && showEditConfirm(loc);
+        key === '2' && setStatusConfirm(loc);
+        key === '3' && showDeleteConfirm(loc);
     }
 
-
-    const menu = (
-        <Menu 
-            onClick={() => handleMenuClick(loc)}
-            items={[
+    const menuItems = [
                 { 
                     label: 'Edit', 
                     key: '1', 
-                    icon: <PopupIcon icon={editIcon} /> 
+                    icon: <PopupIcon icon={editIcon} />
                 },
                 { 
                     label: 'Set as Default', 
@@ -114,7 +92,12 @@ const Card = ({ location }) => {
                     key: '3', 
                     icon: <PopupIcon icon={deleteIcon} /> 
                 },
-            ]}
+    ]
+
+    const menu = (
+        <Menu 
+            onClick={e => handleMenuClick(loc, e.key)}
+            items={menuItems}
             style={{
                 width: '144px', height: '112px', 
                 border: '0.1px solid #EEF0F6', padding: '8px 0', 
