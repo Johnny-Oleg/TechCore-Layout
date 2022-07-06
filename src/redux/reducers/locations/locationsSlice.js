@@ -15,6 +15,12 @@ export const locationsSlice = createSlice({
         fetchLocations: (state, action) => {
             state.locations = [...state.locations, ...action.payload];
         },
+        createLocation: (state, action) => {
+            state.locations = [
+                ...state.locations, 
+                {...action.payload, id: findMaxId(state)}
+            ]
+        },
         setStatusLocation: (state, action) => {
             state.locations = [...state.locations]
                 .map(loc => loc.id === action.payload ?
@@ -30,7 +36,7 @@ export const locationsSlice = createSlice({
 
 export const {
     fetchLocations,
-    addLocation,
+    createLocation,
     editLocation,
     setStatusLocation,
 	deleteLocation,

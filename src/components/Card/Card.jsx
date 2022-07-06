@@ -11,12 +11,14 @@ import PopupModalHeader from '../ui/PopupModal/PopupModalHeader';
 import PopupModalContent from '../ui/PopupModal/PopupModalContent';
 import editIcon from '../../assets/images/popup-icons/edit.svg';
 import starIcon from '../../assets/images/popup-icons/star.svg';
+import starIconActive from '../../assets/images/popup-icons/star-a.svg';
 import warningIcon from '../../assets/images/popup-icons/warning.svg';
 import deleteIcon from '../../assets/images/popup-icons/delete.svg';
 import closeIcon from '../../assets/images/popup-icons/close.svg';
 import style from './Card.module.css';
 
 const Card = ({ location }) => {
+    const [status, setStatus] = useState(location.default);
     const [loc, setLoc] = useState(location);
     const dispatch = useDispatch();
 
@@ -36,7 +38,7 @@ const Card = ({ location }) => {
     const showDeleteConfirm = loc => {
         confirm({
             title: <PopupModalHeader title="Delete Location" />,
-            icon: <PopupIcon className="popupIconModal" icon={warningIcon} />,
+            icon: <PopupIcon className="popupIconModalInfo" icon={warningIcon} />,
             content: <PopupModalContent loc={loc} />,
             closeIcon: <PopupIcon icon={closeIcon} />,
             okText: 'Yes, Delete',
@@ -55,7 +57,7 @@ const Card = ({ location }) => {
             cancelButtonProps: {style: {display: 'none'}},
 
             onOk() {
-                dispatch(deleteLocation(loc.id))
+                dispatch(deleteLocation(loc.id));
                 console.log('OK', loc);
             },
 
@@ -83,9 +85,9 @@ const Card = ({ location }) => {
                     icon: <PopupIcon icon={editIcon} />
                 },
                 { 
-                    label: 'Set as Default', 
+                    label: !status ? 'Set as Default' : 'Remove', 
                     key: '2', 
-                    icon: <PopupIcon icon={starIcon} />
+                    icon: <PopupIcon icon={!status ? starIcon : starIconActive} />
                 },
                 { 
                     label: 'Delete', 

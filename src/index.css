@@ -224,6 +224,35 @@ li.ant-dropdown-menu-item .ant-dropdown-menu-title-content {
     top: 111px;
     left: 40px;
 }
+
+.ant-modal-confirm-body .ant-form .popupIconModal {
+    width: 16px !important;
+    height: 16px !important;
+    position: static;
+    margin-left: 6px;
+    cursor: pointer;
+}
+.ant-modal-confirm-body .ant-form .popupIconModalInfo {
+    width: 16px !important;
+    height: 16px !important;
+    position: static;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+/* .modalInnerStatus .ant-col.ant-form-item-control {
+	min-width: initial !important;
+	flex-grow: 0 !important;
+	order: -1 !important;
+	margin-right: 16px;
+} */
+
+.ant-form-horizontal .ant-form-item-control {
+    min-width: initial !important;
+    flex-grow: 0 !important;
+    order: -1 !important;
+    margin-right: 16px;
+}
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
