@@ -18,7 +18,18 @@ export const locationsSlice = createSlice({
         createLocation: (state, action) => {
             state.locations = [
                 ...state.locations, 
-                {...action.payload, id: findMaxId(state)}
+                {
+                    ...action.payload, 
+                    id: findMaxId(state), 
+                    users: [...action.payload.users.map((user, idx) => ({
+                            ...user, 
+                            userId: idx, 
+                            name: user.label, 
+                            surname: user.value, 
+                            avatar: ''
+                        })
+                    )]
+                }
             ]
         },
         setStatusLocation: (state, action) => {

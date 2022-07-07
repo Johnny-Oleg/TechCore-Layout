@@ -133,14 +133,17 @@
 }
 
 .dropButton button:hover,
-.dropButton button:focus
- {
-    background-color: #EEF7fC;
+.dropButton button:focus {
+    background-color: #EEF7fC !important;
     border-radius: 6px !important;
-    border-color: transparent;
+    border-color: transparent !important;
 }
 
 .dropButton button span {
     color: #AFB6C6;;
     transform: rotate(90deg);
+}
+
+:is(.dropButton button:hover, .dropButton button:focus) span svg {
+    fill: #00A0EC;
 }

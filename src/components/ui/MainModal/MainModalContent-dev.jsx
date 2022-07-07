@@ -1,49 +1,124 @@
 import React, { useState } from 'react';
-import { Checkbox, Form, Input, Select } from 'antd';
 
+import { Checkbox, Form, Input } from 'antd';
+
+import UseDebounceSelect from '../../../hooks/useDebounceSelect';
 import PopupIcon from '../PopupIcon/PopupIcon';
 import infoIcon from '../../../assets/images/popup-icons/info.svg';
 
 import style from './MainModalContent.module.css';
 
-const MainModalContent = ({ onSubmit }) => {
-    const [location, setLocation] = useState({
-        name: '', 
-        default: '',
-        users: [{userId: 1, name: 'J', surname: 'H'}]
-    })
+// function UseDebounceSelect({ fetchOptions, debounceTimeout = 800, ...props }) {
+// 	const [fetching, setFetching] = useState(false);
+// 	const [options, setOptions] = useState([]);
+// 	const fetchRef = useRef(0);
 
-    const [form] = Form.useForm();
+// 	const debounceFetcher = useMemo(() => {
+// 		const loadOptions = (value) => {
+// 			fetchRef.current += 1;
+// 			const fetchId = fetchRef.current;
 
-    const onHandleChange = (e) => {
-        console.log(`value = ${e.target.value}`);
-    }
-    const onChange = ({ target }) => {
-        const { name, value, checked} = target;
+// 			setOptions([]);
+// 			setFetching(true);
 
-        setLocation({
-            name: value.trim(),
-            default: checked,
-            users: [{userId: 1, name: 'J', surname: 'H'}]
-        })
-        console.log(`checked = ${value}`,  onSubmit);
-    }
+// 			fetchOptions(value).then((newOptions) => {
+// 				if (fetchId !== fetchRef.current) return;  // for fetch callback order
+
+// 				setOptions(newOptions);
+// 				setFetching(false);
+// 			})
+// 		}
+
+// 		return debounce(loadOptions, debounceTimeout);
+// 	}, [fetchOptions, debounceTimeout]);
+// 	return (
+// 		<Select
+// 			labelInValue
+// 			filterOption={false}
+// 			onSearch={debounceFetcher}
+// 			notFoundContent={fetching ? <Spin size="small" /> : null}
+// 			{...props}
+// 			options={options}
+// 		/>
+// 	)
+// } // Usage of DebounceSelect
+
+// async function fetchUserList(username) {
+//     console.log('fetching user', username);
+
+//     return fetch('https://randomuser.me/api/?results=5')
+//         .then((response) => response.json())
+//         .then((body) =>
+//             body.results.map((user) => ({
+//                 label: `${user.name.first} ${user.name.last}`,
+//                 value: user.login.username,
+//             }))
+//         );
+// }
+
+const MainModalContent = ({ form }) => {
+    // const [location, setLocation] = useState({
+    //     name: '', 
+    //     default: false,
+    //     users: [{userId: 1, name: 'J', surname: 'H'}]
+    // })
+
+    //const [form] = Form.useForm();
+
+    // const onHandleChange = (e) => {
+    //     console.log(`value = ${e.target.value}`);
+    // }
+    // const onChange = ({ target }) => {
+    //     const { name, value, type } = target;
+    //     const currentValue = type === 'checkbox' ? target.checked : value;
+
+    //     setLocation({
+    //         // name: value,
+    //         // default: checked,
+    //         [name]: currentValue,
+    //         users: [{userId: 1, name: 'J', surname: 'H'}]
+    //     })
+    //     console.log(name, `value = ${value}`, type, target);
+    // }
 
     const onFinish = e => {
 
-        form.validateFields()
-            .then((values) => {
-                console.log(values);
-                form.resetFields();
-               // onSubmit(values);
-            })
-            .catch((info) => {
-                console.log('Validate Failed:', info);
-            });
-        onSubmit(location);
-        form.resetFields();
-        console.log(location, e, form);
+        // form.validateFields()
+        //     .then((values) => {
+        //         console.log(values);
+        //         form.resetFields();
+        //        // onSubmit(values);
+        //     })
+        //     .catch((info) => {
+        //         console.log('Validate Failed:', info);
+        //     });
+        // onSubmit(location);
+        // form.resetFields();
+        //console.log(location, e, form);
+        console.log('submit');
     }
+
+    const [value, setValue] = useState([]);
+
+
+    const fetchUserList = async username => {
+    console.log('fetching user', username);
+
+    return fetch('https://randomuser.me/api/?results=5')
+        .then((response) => response.json())
+        .then((body) =>
+            body.results.map((user) => ({
+                label: `${user.name.first} ${user.name.last}`,
+                value: user.login.username,
+                // userId: `${user.id.value}`,
+                // name: `${user.name.first}`,
+                // surname: `${user.name.last}`,
+                // avatar: `${user.picture?.large}`,
+            }))
+        );
+    }
+
+    console.log(value);
 
     const options = [
         { label: 'Sunday', value: 'Sunday' },
@@ -64,16 +139,18 @@ const MainModalContent = ({ onSubmit }) => {
                 onFinishFailed={err => console.log(err)}
             >
                 <div>
-                    <Input
-                        className={style.modalInnerInput}
-                        placeholder="Location Name"
-                        onChange={onChange}
-                        value={location.name}
-                        name={location.name}
-                        
-                    />
+                    <Form.Item 
+                        name="name" 
+                        required
+                    >
+                        <Input
+                            className={style.modalInnerInput}
+                            placeholder="Location Name"
+                            // onChange={onChange}
+                        />
+                    </Form.Item>
                 </div>
-                <div>
+                <div className={style.modalInnerWork}>
                     <Form.Item
                         label="Workweek"
                         required
@@ -85,15 +162,30 @@ const MainModalContent = ({ onSubmit }) => {
                         />
                     </Form.Item>
                 </div>
-                <div>
-                    <Form.Item>
-                        <Select
+                <div className={style.modalInnerUsers}>
+                    <Form.Item
+                        name="users"
+                    >
+                        {/* <Select
                             showArrow="true"
+                        /> */}
+                        <UseDebounceSelect
+                            mode="multiple"
+                            value={value}
+                            placeholder="Select users"
+                            fetchOptions={fetchUserList}
+                            onChange={newValue => setValue(newValue)}
+                            style={{
+                                width: '100%',
+                            }}
                         />
                     </Form.Item>
                 </div>
-                <div className={style.modalInnerStatus}>
+                <div className={`${style.modalInnerStatus} modalInnerStatus`}>
                     <Form.Item
+                        name="default"
+                        defaultChecked="false"
+                        valuePropName="checked"
                         label="Make This Location Default"
                         tooltip={{
                             title: 'By making this Location the default one, all new team members will be automatically added to this Location.',
@@ -101,11 +193,9 @@ const MainModalContent = ({ onSubmit }) => {
                         }}
                         colon={false}
                     >
-                        <Checkbox 
+                        <Checkbox
                             className={style.modalInnerCheckbox} 
-                            onChange={onChange} 
-                            checked={location.default}
-                            name={location.default}
+                            // onChange={onChange} 
                         />
                     </Form.Item>
                 </div>
@@ -120,7 +210,7 @@ const MainModalContent = ({ onSubmit }) => {
                 </div>
             </Form>
         </div>
-    );
+    )
 }
 
 export default MainModalContent;

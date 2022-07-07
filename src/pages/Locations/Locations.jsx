@@ -31,18 +31,18 @@ const Locations = () => {
     //     console.log(`checked = ${target.value}`, target.checked);
     // };
 
-    const onSubmit = (loc) => {
-        //e.preventDefault();
+    // const onSubmit = (loc) => {
+    //     //e.preventDefault();
 
-        dispatch(createLocation(loc));
-        console.log(loc);
-    }
+    //     //dispatch(createLocation(loc));
+    //     console.log(loc);
+    // }
 
     const showCreateConfirm = () => {
         confirm({
             title: <PopupModalHeader title="Create Location" />,
             icon: <PopupIcon className="popupIconModal" icon={warningIcon} />,
-            content: <MainModalContent onSubmit={onSubmit} />,
+            content: <MainModalContent form={form} />,
             closeIcon: <PopupIcon icon={closeIcon} />,
             okText: 'Create',
             okType: 'primary',
@@ -80,12 +80,10 @@ const Locations = () => {
             },
 
             onOk() {
-                //onSubmit()
-                //dispatch(createLocation(form));
                 form.validateFields()
                     .then((values) => {
                         form.resetFields();
-                        //dispatch(values);
+                        dispatch(createLocation(values));
                         console.log(values);
                     })
                     .catch((info) => {

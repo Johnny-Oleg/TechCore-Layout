@@ -50,8 +50,8 @@ const Card = ({ location }) => {
             width: '460px',
             // maskStyle: {backgroundColor: '#242C48', opacity: '0.3'},
             okButtonProps: {style: {
-                width: '119px', height: '40px', borderRadius: '6px',
-                color: '#F24445', fontSize: '13px', borderColor: '#F24445',
+                width: '119px', height: '40px', borderRadius: '6px', backgroundColor: '#F24445',
+                color: '#FFFFFF', fontSize: '13px', borderColor: '#F24445',
                 fontWeight: '600', lineHeight: '16px', marginRight: '40px'
 
             }},
