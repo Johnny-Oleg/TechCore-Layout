@@ -1,41 +1,48 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Checkbox, Form, Input } from 'antd';
+import { Checkbox, Form, Input, Select } from 'antd';
 
-import { createLocation } from '../../../redux/reducers/locations/locationsSlice';
 import PopupIcon from '../PopupIcon/PopupIcon';
 import infoIcon from '../../../assets/images/popup-icons/info.svg';
 
 import style from './MainModalContent.module.css';
 
-const MainModalContent = () => {
+const MainModalContent = ({ onSubmit }) => {
     const [location, setLocation] = useState({
         name: '', 
         default: '',
         users: [{userId: 1, name: 'J', surname: 'H'}]
     })
-    // const [status, setStatus] = useState(false);
-    // const [users, setUsers] = useState([]);
-    //const dispatch = useDispatch();
+
     const [form] = Form.useForm();
 
     const onHandleChange = (e) => {
         console.log(`value = ${e.target.value}`);
     }
     const onChange = ({ target }) => {
+        const { name, value, checked} = target;
+
         setLocation({
-            name: target.value.trim(),
-            default: target.checked,
+            name: value.trim(),
+            default: checked,
             users: [{userId: 1, name: 'J', surname: 'H'}]
         })
-        console.log(`checked = ${target.value}`, target.checked);
+        console.log(`checked = ${value}`,  onSubmit);
     }
 
-    const onSubmit = e => {
-        e.preventDefault();
+    const onFinish = e => {
 
-        //dispatch(createLocation(location));
-        console.log(location);
+        form.validateFields()
+            .then((values) => {
+                console.log(values);
+                form.resetFields();
+               // onSubmit(values);
+            })
+            .catch((info) => {
+                console.log('Validate Failed:', info);
+            });
+        onSubmit(location);
+        form.resetFields();
+        console.log(location, e, form);
     }
 
     const options = [
@@ -51,9 +58,10 @@ const MainModalContent = () => {
     return (
         <div className={style.mainModalInner}>
             <Form 
+                id="createForm"
                 form={form} 
-                // onFinish={onSubmit}
-                submit={onSubmit}
+                onFinish={onFinish}
+                onFinishFailed={err => console.log(err)}
             >
                 <div>
                     <Input
@@ -61,6 +69,7 @@ const MainModalContent = () => {
                         placeholder="Location Name"
                         onChange={onChange}
                         value={location.name}
+                        name={location.name}
                         
                     />
                 </div>
@@ -70,7 +79,17 @@ const MainModalContent = () => {
                         required
                         colon={false}
                     >
-                        <Checkbox.Group options={options} onChange={onChange} />
+                        <Checkbox.Group 
+                            options={options} 
+                            // onChange={onChange} 
+                        />
+                    </Form.Item>
+                </div>
+                <div>
+                    <Form.Item>
+                        <Select
+                            showArrow="true"
+                        />
                     </Form.Item>
                 </div>
                 <div className={style.modalInnerStatus}>
@@ -82,7 +101,12 @@ const MainModalContent = () => {
                         }}
                         colon={false}
                     >
-                        <Checkbox className={style.modalInnerCheckbox} onChange={onChange} />
+                        <Checkbox 
+                            className={style.modalInnerCheckbox} 
+                            onChange={onChange} 
+                            checked={location.default}
+                            name={location.default}
+                        />
                     </Form.Item>
                 </div>
                 <div className={style.modalInnerPolicy}>

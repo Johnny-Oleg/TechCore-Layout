@@ -27,6 +27,7 @@ const Card = ({ location }) => {
 
     useEffect(() => {
       setLoc(location);
+      setStatus(location.default);
     
       return () => {
         console.log(location, 'loc');
@@ -50,7 +51,7 @@ const Card = ({ location }) => {
             // maskStyle: {backgroundColor: '#242C48', opacity: '0.3'},
             okButtonProps: {style: {
                 width: '119px', height: '40px', borderRadius: '6px',
-                backgroundColor: '#F24445', color: '#FFFFFF', fontSize: '13px',
+                color: '#F24445', fontSize: '13px', borderColor: '#F24445',
                 fontWeight: '600', lineHeight: '16px', marginRight: '40px'
 
             }},
@@ -103,9 +104,9 @@ const Card = ({ location }) => {
             style={{
                 width: '144px', height: '112px', 
                 border: '0.1px solid #EEF0F6', padding: '8px 0', 
-                boxShadow: '0px 8px 28px rgba(0, 0, 0, 0.05), 2px 2px 15px rgba(0, 44, 175, 0.05)',
                 borderRadius: '6px', fontSize: '13px', lineHeight: '16px', 
-                color: '#1E212A', backgroundColor: '#FFFFFF'
+                color: '#1E212A', backgroundColor: '#FFFFFF',
+                boxShadow: '0px 8px 28px rgba(0, 0, 0, 0.05), 2px 2px 15px rgba(0, 44, 175, 0.05)'
             }}
         />
     )
@@ -125,7 +126,8 @@ const Card = ({ location }) => {
                     size="small" 
                     placement="bottomRight"
                     trigger={['click']}
-                ></Dropdown.Button>
+                >
+                </Dropdown.Button>
             </div>
             <div className={style.cardInner}>
                 <div className={style.cardInnerTop}>

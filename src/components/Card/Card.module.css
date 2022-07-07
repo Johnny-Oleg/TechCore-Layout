@@ -144,7 +144,3 @@
     color: #AFB6C6;;
     transform: rotate(90deg);
 }
-
-.ant-modal-confirm .ant-modal-confirm-btns button {
-    display: none;
-}

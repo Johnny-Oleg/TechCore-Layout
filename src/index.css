@@ -172,18 +172,6 @@ body {
     min-height: 100vh;
 }
 
-/* .ant-btn:hover {
-    color: transparent;
-    border-color: transparent;
-    background-color: transparent;
-} */
-
-/* .ant-btn:hover, .ant-btn:focus {
-    color: transparent;
-    border-color: transparent;
-    border-color: transparent;
-} */
-
 li.ant-dropdown-menu-item {
     display: flex;
     justify-content: flex-start;
@@ -195,10 +183,6 @@ li.ant-dropdown-menu-item {
     background-color: inherit !important;
 }
 
-/* .ant-dropdown-menu .ant-dropdown-mane-item:hover,
-.ant-dropdown-menu-item.ant-dropdown-mane-item-active {
-    background-color: inherit !important;
-} */
 
 li.ant-dropdown-menu-item .ant-dropdown-menu-title-content {
     font-size: 13px;
@@ -232,12 +216,31 @@ li.ant-dropdown-menu-item .ant-dropdown-menu-title-content {
     margin-left: 6px;
     cursor: pointer;
 }
+
 .ant-modal-confirm-body .ant-form .popupIconModalInfo {
     width: 16px !important;
     height: 16px !important;
     position: static;
     margin-left: 6px;
     cursor: pointer;
+}
+
+.ant-btn-default {
+    border-color: #AFB6C6;
+}
+
+.ant-btn:hover {
+    background-color: rgba(134, 140, 152, 0.7) ;
+    border-color: rgba(134, 140, 152, 0.7);
+}
+
+.ant-btn-primary:hover {
+    background-color: #0683DD !important;
+}
+
+.ant-btn-dangerous:hover {
+    color: #FFFFFF !important;
+    background-color: #F24445;
 }
 
 /* .modalInnerStatus .ant-col.ant-form-item-control {

@@ -5,7 +5,7 @@ import { Button, Form, Modal } from 'antd';
 import { createLocation } from '../../redux/reducers/locations/locationsSlice';
 import PageLayout from '../../components/PageLayout/PageLayout';
 import PopupModalHeader from '../../components/ui/PopupModal/PopupModalHeader';
-import MainModalContent from '../../components/ui/MainModal/MainModalContent';
+import MainModalContent from '../../components/ui/MainModal/MainModalContent-dev';
 import PopupIcon from '../../components/ui/PopupIcon/PopupIcon';
 import warningIcon from '../../assets/images/popup-icons/warning.svg';
 import closeIcon from '../../assets/images/popup-icons/close.svg';
@@ -14,34 +14,35 @@ import style from '../pages.module.css';
 const Locations = () => {
     const dispatch = useDispatch();
     const { confirm } = Modal;
+    const [form] = Form.useForm()
 
-    const [loc, setLoc] = useState({
-        name: '',
-        default: '',
-        users: [{ userId: 1, name: 'J', surname: 'H' }],
-    });
+    // const [loc, setLoc] = useState({
+    //     name: '',
+    //     default: '',
+    //     users: [{ userId: 1, name: 'J', surname: 'H' }],
+    // });
 
-    const onChange = ({ target }) => {
-        setLoc({
-            name: target.value.trim(),
-            default: target.checked,
-            users: [{ userId: 1, name: 'J', surname: 'H' }],
-        });
-        console.log(`checked = ${target.value}`, target.checked);
-    };
+    // const onChange = ({ target }) => {
+    //     setLoc({
+    //         name: target.value.trim(),
+    //         default: target.checked,
+    //         users: [{ userId: 1, name: 'J', surname: 'H' }],
+    //     });
+    //     console.log(`checked = ${target.value}`, target.checked);
+    // };
 
-    const onSubmit = () => {
+    const onSubmit = (loc) => {
         //e.preventDefault();
 
         dispatch(createLocation(loc));
-        console.log();
+        console.log(loc);
     }
 
     const showCreateConfirm = () => {
         confirm({
             title: <PopupModalHeader title="Create Location" />,
             icon: <PopupIcon className="popupIconModal" icon={warningIcon} />,
-            content: <MainModalContent loc={loc} onChange={onChange} />,
+            content: <MainModalContent onSubmit={onSubmit} />,
             closeIcon: <PopupIcon icon={closeIcon} />,
             okText: 'Create',
             okType: 'primary',
@@ -51,6 +52,8 @@ const Locations = () => {
             width: '550px',
             // maskStyle: {backgroundColor: '#242C48', opacity: '0.3'},
             okButtonProps: {
+                form: 'createForm',
+                htmlType: 'submit',
                 style: {
                     width: '93px',
                     height: '40px',
@@ -77,9 +80,18 @@ const Locations = () => {
             },
 
             onOk() {
-                onSubmit()
-                //dispatch(createLocation());
-                console.log('OK');
+                //onSubmit()
+                //dispatch(createLocation(form));
+                form.validateFields()
+                    .then((values) => {
+                        form.resetFields();
+                        //dispatch(values);
+                        console.log(values);
+                    })
+                    .catch((info) => {
+                        console.log('Validate Failed:', info);
+                    });
+                console.log('OK', form);
             },
 
             onCancel() {
