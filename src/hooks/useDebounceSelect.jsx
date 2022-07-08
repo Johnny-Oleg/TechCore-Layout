@@ -2,6 +2,9 @@ import React, { useMemo, useRef, useState } from 'react';
 import debounce from 'lodash.debounce';
 import { Select, Spin } from 'antd';
 
+import SuffixIcon from '../components/ui/SuffixIcon/SuffixIcon';
+import polygonIcon from '../assets/images/popup-icons/polygon.svg';
+
 const useDebounceSelect = ({ fetchOptions, debounceTimeout = 800, ...props }) => {
 	const [fetching, setFetching] = useState(false);
 	const [options, setOptions] = useState([]);
@@ -33,6 +36,13 @@ const useDebounceSelect = ({ fetchOptions, debounceTimeout = 800, ...props }) =>
 			notFoundContent={fetching ? <Spin size="small" /> : null}
 			{...props}
 			options={options}
+			showArrow="true"
+			size="large"
+			menuItemSelectedIcon={<SuffixIcon icon={polygonIcon} />}
+			suffixIcon={<SuffixIcon icon={polygonIcon} />}
+			className="usersSelect"
+			placement="topLeft"
+			onFocus={() => <h1>hii</h1>}
 		/>
 	)
 }

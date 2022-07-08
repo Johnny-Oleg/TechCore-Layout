@@ -20,6 +20,10 @@
         2px 2px 15px rgba(0, 44, 175, 0.05);
 }
 
+.card:hover .dropButton button {
+    display: block;
+}
+
 .cardTop {
     max-height: 21px;
     display: flex;
@@ -47,7 +51,6 @@
     padding: 3px 14px;
     background: #00a0ec;
     border-radius: 10px;
-    /* transform: rotate(-180deg); */
 }
 
 .cardTopStatus span {
@@ -127,9 +130,11 @@
 }
 
 .dropButton button {
+    display: none;
     border-radius: 6px;
     border-color: transparent;
     box-shadow: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .dropButton button:hover,
@@ -137,6 +142,10 @@
     background-color: #EEF7fC !important;
     border-radius: 6px !important;
     border-color: transparent !important;
+}
+
+.dropButton button:focus {
+    display: block;
 }
 
 .dropButton button span {

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
-import { Checkbox, Form, Input } from 'antd';
+import { Checkbox, Col, Form, Input, Row, Tooltip } from 'antd';
 
 import UseDebounceSelect from '../../../hooks/useDebounceSelect';
 import PopupIcon from '../PopupIcon/PopupIcon';
 import infoIcon from '../../../assets/images/popup-icons/info.svg';
 
 import style from './MainModalContent.module.css';
+import ValidateWarning from '../ValidateWarning/ValidateWarning';
 
 // function UseDebounceSelect({ fetchOptions, debounceTimeout = 800, ...props }) {
 // 	const [fetching, setFetching] = useState(false);
@@ -115,7 +116,7 @@ const MainModalContent = ({ form }) => {
                 // surname: `${user.name.last}`,
                 // avatar: `${user.picture?.large}`,
             }))
-        );
+        )
     }
 
     console.log(value);
@@ -156,8 +157,40 @@ const MainModalContent = ({ form }) => {
                         required
                         colon={false}
                     >
-                        <Checkbox.Group 
-                            options={options} 
+                        <Checkbox.Group>
+                            <Row className="innerWorkWeek">
+                                {options.map(item => (
+                                    <Col 
+                                        className="col!"
+                                        span={8}
+                                    >
+                                        <Checkbox
+                                            className={style.weekGreedCheckbox}
+                                            value={item.value}
+                                        >
+                                            {item.label}
+                                        </Checkbox>
+                                    </Col>
+                                ))} 
+                            </Row>
+                        </Checkbox.Group>
+                    </Form.Item>
+                </div>
+                <div className={`${style.modalInnerStatus} modalInnerStatus`}>
+                    <Form.Item
+                        name="expire"
+                        defaultChecked="false"
+                        valuePropName="checked"
+                        label="No Brought Forward Expiry Date"
+                        labelAlign='right'
+                        tooltip={{
+                            title: 'Each year, the user\'s rolled over leaves will expire on the date you set. The quotas for each leave type are configured through the Leave Types section for this location and each can be set individually to allow or not allow roll overs.',
+                            icon: <PopupIcon className={style.popupInfoIcon} icon={infoIcon} />,
+                        }}
+                        colon={false}
+                    >
+                        <Checkbox
+                            className={style.modalInnerCheckbox} 
                             // onChange={onChange} 
                         />
                     </Form.Item>
@@ -165,10 +198,11 @@ const MainModalContent = ({ form }) => {
                 <div className={style.modalInnerUsers}>
                     <Form.Item
                         name="users"
+                        help={<ValidateWarning />}
+                        validateStatus="validating"
+                        validateTrigger
+                        // label="Users" :TODO
                     >
-                        {/* <Select
-                            showArrow="true"
-                        /> */}
                         <UseDebounceSelect
                             mode="multiple"
                             value={value}
@@ -188,8 +222,16 @@ const MainModalContent = ({ form }) => {
                         valuePropName="checked"
                         label="Make This Location Default"
                         tooltip={{
-                            title: 'By making this Location the default one, all new team members will be automatically added to this Location.',
-                            icon: <PopupIcon icon={infoIcon} />,
+                            title: <Tooltip
+                                placement="topLeft"
+                                title="
+                                By making this Location the default one, all new team members will be automatically added to this Location.
+                                "
+                            >
+                                <PopupIcon />
+                            </Tooltip>,
+                            // title: 'By making this Location the default one, all new team members will be automatically added to this Location.',
+                            icon: <PopupIcon className={style.popupInfoIcon} icon={infoIcon} />,
                         }}
                         colon={false}
                     >
