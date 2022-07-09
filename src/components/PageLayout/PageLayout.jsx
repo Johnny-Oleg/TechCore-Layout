@@ -17,7 +17,11 @@ const PageLayout = () => {
 					<Row gutter={[16, 16]}>
 						{
 							locations.map(location => (
-								<Col xs={24} sm={12} md={8} xl={8} xxl={6} key={location.id}>
+								<Col 
+									key={location.id}
+									xs={24} sm={12} md={8} xl={8} 
+									// xxl={6} 
+								>
 									{/* <Card 
 										className={style.card}
 										title={loc.name}

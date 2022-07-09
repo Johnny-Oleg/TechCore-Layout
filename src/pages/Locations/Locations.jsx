@@ -16,32 +16,10 @@ const Locations = () => {
     const { confirm } = Modal;
     const [form] = Form.useForm()
 
-    // const [loc, setLoc] = useState({
-    //     name: '',
-    //     default: '',
-    //     users: [{ userId: 1, name: 'J', surname: 'H' }],
-    // });
-
-    // const onChange = ({ target }) => {
-    //     setLoc({
-    //         name: target.value.trim(),
-    //         default: target.checked,
-    //         users: [{ userId: 1, name: 'J', surname: 'H' }],
-    //     });
-    //     console.log(`checked = ${target.value}`, target.checked);
-    // };
-
-    // const onSubmit = (loc) => {
-    //     //e.preventDefault();
-
-    //     //dispatch(createLocation(loc));
-    //     console.log(loc);
-    // }
-
     const showCreateConfirm = () => {
         confirm({
             title: <PopupModalHeader title="Create Location" />,
-            icon: <PopupIcon className="popupIconModal" icon={warningIcon} />,
+            icon: false,
             content: <MainModalContent form={form} />,
             closeIcon: <PopupIcon icon={closeIcon} />,
             okText: 'Create',

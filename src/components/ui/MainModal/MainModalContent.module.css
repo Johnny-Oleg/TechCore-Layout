@@ -25,6 +25,15 @@
 	color: #AFB6C6 !important;
 }
 
+.modalInnerLabel {
+	min-width: 190px;
+	margin: 0 6px 0 16px;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 16px;
+	color: #1E212A;
+}
+
 /* .workGreedCheckbox {
 	font-size: 13px;
 	line-height: 16px;
@@ -58,8 +67,4 @@
 
 .innerPolicyText a:hover {
 	text-decoration: underline;
-}
-
-.popupInfoIcon {
-	margin-bottom: 5px;
 }

@@ -212,7 +212,7 @@ li.ant-dropdown-menu-item .ant-dropdown-menu-title-content {
 
 .ant-form .popupInfoIcon {
     margin-bottom: 4px;
-    margin-left: 6px;
+    /* margin-left: 6px; */
     position: static;
 }
 
@@ -237,12 +237,12 @@ li.ant-dropdown-menu-item .ant-dropdown-menu-title-content {
     background-color: #ED3536 !important;
 }
 
-.modalInnerStatus .ant-form-item-control {
+/* .modalInnerStatus .ant-form-item-control {
 	min-width: initial !important;
 	flex-grow: 0 !important;
 	order: -1 !important;
 	margin-right: 16px;
-}
+} */
 
 .ant-select-multiple .ant-select-selection-item {
     display: flex;
@@ -277,7 +277,11 @@ li.ant-dropdown-menu-item .ant-dropdown-menu-title-content {
     color: #00A0EC;
 }
 
-.usersSelect .ant-select-selector {
+.ant-modal-confirm-body {
+    height: 745px; 
+}
+
+.modalSelect .ant-select-selector {
     padding-left: 16px;
     border-radius: 4px !important;
     font-size: 13px;
@@ -285,19 +289,23 @@ li.ant-dropdown-menu-item .ant-dropdown-menu-title-content {
     color: #AFB6C6;
     caret-color: #00A0EC;
 }
-.usersSelect .ant-select-selector:focus {
+.modalSelect .ant-select-selector:focus {
     border-color: #00A0EC;
 }
 
-.usersSelect .ant-select-selection-search {
+.modalSelect .ant-select-selection-search {
     margin-inline-start: 0;
 }
 
-.usersSelect .ant-select-selection-placeholder {
+.modalSelect .ant-select-selection-placeholder {
     margin-left: 5px;
     font-size: 13px;
     line-height: 20px;
     color: #AFB6C6;
+}
+
+.modalSelectOptions .ant-select-selection-item {
+    margin-left: 5px;
 }
 
 .innerWorkWeek {
@@ -352,6 +360,39 @@ li.ant-dropdown-menu-item .ant-dropdown-menu-title-content {
     font-size: 12px;
     line-height: 16px;
     color: #868C98;
+}
+
+.ant-form-item-control-input-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalInnerLabel {
+    /* min-width: 190px; */
+    display: inline-block;
+	margin: 0 6px 0 16px;
+	font-weight: 500;
+	font-size: 13px !important;
+	line-height: 16px;
+	color: #1E212A;
+}
+
+.ant-tooltip-inner {
+    /* max-height: 106px; */
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 18px;
+}
+
+.ant-tooltip {
+    /* left: 660px; */
+    max-width: 314px;
+}
+
+.ant-tooltip-arrow {
+    /* left: 50px !important; */
 }
 
 /* .ant-checkbox-input:focus + .ant-checkbox-inner {

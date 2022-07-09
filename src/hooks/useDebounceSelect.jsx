@@ -40,9 +40,9 @@ const useDebounceSelect = ({ fetchOptions, debounceTimeout = 800, ...props }) =>
 			size="large"
 			menuItemSelectedIcon={<SuffixIcon icon={polygonIcon} />}
 			suffixIcon={<SuffixIcon icon={polygonIcon} />}
-			className="usersSelect"
+			className="modalSelect"
 			placement="topLeft"
-			onFocus={() => <h1>hii</h1>}
+			// onFocus={() => <h1>Test</h1>}
 		/>
 	)
 }
