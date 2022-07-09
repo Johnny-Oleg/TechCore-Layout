@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import MenuNavbar from '../ui/MenuNavbar/MenuNavbar';
 import Avatar from '../ui/Avatar/Avatar';
-import logo from '../../assets/images/techcore-logo.svg';
-import notifications from '../../assets/images/notfications.svg';
-import avatar from '../../assets/images/menu-avatar.svg';
+import logo from '../../assets/images/menu-icons/techcore-logo.svg';
+import notifications from '../../assets/images/menu-icons/notfications.svg';
+import avatar from '../../assets/images/menu-icons/menu-avatar.svg';
 import style from './Menu.module.css';
 
 const Menu = () => {

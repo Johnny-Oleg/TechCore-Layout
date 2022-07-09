@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink, Outlet, useOutletContext } from 'react-router-dom';
 
-import shape from '../../assets/images/shape.svg';
-import style from './VacationManager.module.css';
+import shape from '../../assets/images/menu-icons/shape.svg';
+import style from '../subPages.module.css';
 
 const VacationManager = () => {
     const [props, setProps] = useOutletContext();

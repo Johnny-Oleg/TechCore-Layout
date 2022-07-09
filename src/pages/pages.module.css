@@ -1,5 +1,4 @@
 .main {
-    /* width: 100%; */
     display: flex;
     position: relative;
 }
@@ -14,23 +13,27 @@
     max-width: 24px;
     max-height: 24px;
     position: absolute;
-    top: 80px;
+    top: 78px;
     left: 228px;
+    transition: transform 0.5s ease-in-out;
 }
 
 .switcherInvisible {
     max-width: 24px;
     max-height: 24px;
     position: absolute;
-    top: 80px;
-    /* left: 228px; */
-    /* transform: translate(-50%, 80px) scaleX(-1); */
+    top: 78px;
+    left: 2px;
     transform: scaleX(-1);
+    transition: transform 0.5s ease-in-out;
 }
 
-/* .switcherInvisible .mainSwitcher {
+.mainSwitcherInvisible {
     width: 12px;
-} */
+    height: 100%;
+    border-right: 1px solid rgba(46, 91, 255, 0.1);
+    background-color: #f5f9fe;
+}
 
 .submenu {
     width: 241px;
@@ -40,15 +43,7 @@
     flex: 1 0 auto;
     background-color: #f5f9fe;
     border-right: 1px solid rgba(46, 91, 255, 0.1);
-}
-
-.submenuInvisible {
-    width: 12px;
-    height: 100vh;
-}
-
-.submenuHidden {
-    display: none;
+    background-color: #f5f9fe;
 }
 
 .submenuTitle {

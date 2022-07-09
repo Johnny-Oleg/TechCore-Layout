@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import general from '../../../assets/images/settings-general.svg';
-import generalActive from '../../../assets/images/settings-general-a.svg';
-import manager from '../../../assets/images/vacation-manager.svg';
-import managerActive from '../../../assets/images/vacation-manager-a.svg';
+import general from '../../../assets/images/menu-icons/settings-general.svg';
+import generalActive from '../../../assets/images/menu-icons-active/settings-general-a.svg';
+import manager from '../../../assets/images/menu-icons/vacation-manager.svg';
+import managerActive from '../../../assets/images/menu-icons-active/vacation-manager-a.svg';
 import style from './SubMenu.module.css';
 
 const SubMenu = () => {

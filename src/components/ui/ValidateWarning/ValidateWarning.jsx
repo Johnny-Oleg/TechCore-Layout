@@ -12,7 +12,7 @@ const ValidateWarning = () => {
                 and leave information (e.g. the initial brought forward days).
             </p>
         </div>
-    );
+    )
 }
 
 export default ValidateWarning;

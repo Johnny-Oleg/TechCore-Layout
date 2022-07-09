@@ -32,6 +32,14 @@ export const locationsSlice = createSlice({
                 }
             ]
         },
+        editLocation: (state, action) => {
+            const { location , id } = action;
+
+            state.locations = [...state.locations]
+                .find(loc => loc.id === id ?
+                    { ...location } : loc    
+                )
+        },
         setStatusLocation: (state, action) => {
             state.locations = [...state.locations]
                 .map(loc => loc.id === action.payload ?

@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import SubMenu from '../../components/ui/SubMenu/SubMenu';
 import Switcher from '../../components/ui/Switcher/Switcher';
-import icon from '../../assets/images/users-a.svg';
+import icon from '../../assets/images/menu-icons-active/users-a.svg';
 import style from '../pages.module.css';
 
 const Users = () => {
@@ -13,11 +13,15 @@ const Users = () => {
 
 	return (
         <div className={style.main}>
-            <div
-                className={visible ? style.switcher : style.switcherInvisible}
+            <div 
+                className={visible ? style.mainSwitcher : style.mainSwitcherInvisible}
                 onClick={handleClick}
             >
-                <Switcher />
+                <span           
+                    className={visible ? style.switcher : style.switcherInvisible} 
+                >
+                    <Switcher/>
+                </span>
             </div>
             {visible &&
                 <div className={style.submenu}>

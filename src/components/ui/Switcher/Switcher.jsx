@@ -1,6 +1,6 @@
 import React from 'react';
 
-import switcher from '../../../assets/images/switcher.svg';
+import switcher from '../../../assets/images/menu-icons/switcher.svg';
 import style from './Switcher.module.css';
 
 const Switcher = () => {

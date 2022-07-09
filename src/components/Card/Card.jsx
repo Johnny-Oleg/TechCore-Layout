@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Dropdown, Menu, Modal } from 'antd';
+import { Dropdown, Form, Menu, Modal } from 'antd';
 
-import { setStatusLocation } from '../../redux/reducers/locations/locationsSlice';
-import { deleteLocation } from '../../redux/reducers/locations/locationsSlice';
+import { 
+    editLocation, 
+    setStatusLocation, 
+    deleteLocation 
+} from '../../redux/reducers/locations/locationsSlice';
 import { useSplitUsers } from '../../hooks/useSplitUsers';
 import Avatar from '../ui/Avatar/Avatar';
 import PopupIcon from '../ui/PopupIcon/PopupIcon';
@@ -23,6 +26,7 @@ const Card = ({ location }) => {
     const dispatch = useDispatch();
 
     const { confirm } = Modal;
+    const [form] = Form.useForm();
     const [usersToShow, usersClone] = useSplitUsers(loc);
 
     useEffect(() => {
@@ -33,6 +37,10 @@ const Card = ({ location }) => {
         console.log(location, 'loc');
       }
     }, [location])
+
+    const showEditConfirm = () => {
+        // TODO
+    }
 
     const setStatusConfirm = loc => dispatch(setStatusLocation(loc.id));
     
@@ -74,7 +82,7 @@ const Card = ({ location }) => {
     }
 
     const handleMenuClick = (loc, key) => {
-        // key === '1' && showEditConfirm(loc);
+        key === '1' && showEditConfirm(loc);
         key === '2' && setStatusConfirm(loc);
         key === '3' && showDeleteConfirm(loc);
     }

@@ -1,16 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import dashboard from '../../../assets/images/dashboard.svg';
-import dashboardActive from '../../../assets/images/dashboard-a.svg';
-import users from '../../../assets/images/users.svg';
-import usersActive from '../../../assets/images/users-a.svg';
-import settings from '../../../assets/images/settings.svg';
-import settingsActive from '../../../assets/images/settings-a.svg';
-import folder from '../../../assets/images/folder.svg';
-import folderActive from '../../../assets/images/folder-a.svg';
-import vacation from '../../../assets/images/vacation.svg';
-import vacationActive from '../../../assets/images/vacation-a.svg';
+import dashboard from '../../../assets/images/menu-icons/dashboard.svg';
+import dashboardActive from '../../../assets/images/menu-icons-active/dashboard-a.svg';
+import users from '../../../assets/images/menu-icons/users.svg';
+import usersActive from '../../../assets/images/menu-icons-active/users-a.svg';
+import settings from '../../../assets/images/menu-icons/settings.svg';
+import settingsActive from '../../../assets/images/menu-icons-active/settings-a.svg';
+import folder from '../../../assets/images/menu-icons/folder.svg';
+import folderActive from '../../../assets/images/menu-icons-active/folder-a.svg';
+import vacation from '../../../assets/images/menu-icons/vacation.svg';
+import vacationActive from '../../../assets/images/menu-icons-active/vacation-a.svg';
 import style from './MenuNavbar.module.css';
 
 const MenuNavbar = () => {
