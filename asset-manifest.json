@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/TechCore-Layout/static/css/main.685e77a2.css",
-    "main.js": "/TechCore-Layout/static/js/main.702c2500.js",
+    "main.css": "/TechCore-Layout/static/css/main.b4c88825.css",
+    "main.js": "/TechCore-Layout/static/js/main.54c92057.js",
     "static/js/787.2975b55d.chunk.js": "/TechCore-Layout/static/js/787.2975b55d.chunk.js",
     "static/media/Poppins-Regular.woff": "/TechCore-Layout/static/media/Poppins-Regular.ab6122bd28174ddf9eeb.woff",
     "static/media/Poppins-SemiBold.woff": "/TechCore-Layout/static/media/Poppins-SemiBold.ee8ae013a422a80622c6.woff",
@@ -39,12 +39,12 @@
     "static/media/folder.svg": "/TechCore-Layout/static/media/folder.8f71102a536cb2023b4d7c0d36d270fc.svg",
     "static/media/switcher.svg": "/TechCore-Layout/static/media/switcher.ec10f4304b6a44c64851b5895609d64a.svg",
     "static/media/close.svg": "/TechCore-Layout/static/media/close.d83bf8c7d3ac875ee5baa05ebb6c70f2.svg",
-    "main.685e77a2.css.map": "/TechCore-Layout/static/css/main.685e77a2.css.map",
-    "main.702c2500.js.map": "/TechCore-Layout/static/js/main.702c2500.js.map",
+    "main.b4c88825.css.map": "/TechCore-Layout/static/css/main.b4c88825.css.map",
+    "main.54c92057.js.map": "/TechCore-Layout/static/js/main.54c92057.js.map",
     "787.2975b55d.chunk.js.map": "/TechCore-Layout/static/js/787.2975b55d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.685e77a2.css",
-    "static/js/main.702c2500.js"
+    "static/css/main.b4c88825.css",
+    "static/js/main.54c92057.js"
   ]
 }
