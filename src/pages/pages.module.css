@@ -4,18 +4,33 @@
     position: relative;
 }
 
+.mainSwitcher {
+    max-height: 100%;
+    position: relative;
+    background-color: #f5f9fe;
+}
+
 .switcher {
     max-width: 24px;
     max-height: 24px;
     position: absolute;
-    top: 78px;
+    top: 80px;
     left: 228px;
 }
 
 .switcherInvisible {
-    /* transform: matrix(-1, 0, 0, 1, 0, 0); */
-    transform: translate(-50%, 78px) scaleX(-1);
+    max-width: 24px;
+    max-height: 24px;
+    position: absolute;
+    top: 80px;
+    /* left: 228px; */
+    /* transform: translate(-50%, 80px) scaleX(-1); */
+    transform: scaleX(-1);
 }
+
+/* .switcherInvisible .mainSwitcher {
+    width: 12px;
+} */
 
 .submenu {
     width: 241px;
@@ -25,6 +40,15 @@
     flex: 1 0 auto;
     background-color: #f5f9fe;
     border-right: 1px solid rgba(46, 91, 255, 0.1);
+}
+
+.submenuInvisible {
+    width: 12px;
+    height: 100vh;
+}
+
+.submenuHidden {
+    display: none;
 }
 
 .submenuTitle {
