@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/TechCore-Layout/static/css/main.834fe235.css",
-    "main.js": "/TechCore-Layout/static/js/main.39a2bb2d.js",
+    "main.css": "/TechCore-Layout/static/css/main.af029f65.css",
+    "main.js": "/TechCore-Layout/static/js/main.aabedd2d.js",
     "static/js/787.2975b55d.chunk.js": "/TechCore-Layout/static/js/787.2975b55d.chunk.js",
     "static/media/Poppins-Regular.woff": "/TechCore-Layout/static/media/Poppins-Regular.ab6122bd28174ddf9eeb.woff",
     "static/media/Poppins-SemiBold.woff": "/TechCore-Layout/static/media/Poppins-SemiBold.ee8ae013a422a80622c6.woff",
@@ -17,7 +17,7 @@
     "static/media/vacation-a.svg": "/TechCore-Layout/static/media/vacation-a.7db86e35d5aa11b4f2710011ba8ff2c3.svg",
     "static/media/vacation.svg": "/TechCore-Layout/static/media/vacation.b503700331dd686d05a5222cefc60e51.svg",
     "static/media/edit.svg": "/TechCore-Layout/static/media/edit.cd01f588103a2e78d2d8e2389ebc1c00.svg",
-    "static/media/star-a.svg": "/TechCore-Layout/static/media/star-a.62b5d7869875072df4b0cf6e711a233d.svg",
+    "static/media/star-a.svg": "/TechCore-Layout/static/media/star-a.9e07fa8ec2ec54e98909b58c995b5f62.svg",
     "static/media/star.svg": "/TechCore-Layout/static/media/star.a3bae9579f9e149bc23efb7b33826d60.svg",
     "static/media/settings-general-a.svg": "/TechCore-Layout/static/media/settings-general-a.45d0a0c50fb0b50e77c5f15aa0220536.svg",
     "static/media/settings-general.svg": "/TechCore-Layout/static/media/settings-general.e677e4380c83d50c5c4f87d367d3d6f1.svg",
@@ -34,16 +34,17 @@
     "static/media/dashboard-a.svg": "/TechCore-Layout/static/media/dashboard-a.0184c4018cca3f91a64100c6ffac5d44.svg",
     "static/media/dashboard.svg": "/TechCore-Layout/static/media/dashboard.d15adc959fe11e3f116c27679ca0f5e9.svg",
     "index.html": "/TechCore-Layout/index.html",
+    "static/media/polygon.svg": "/TechCore-Layout/static/media/polygon.fc8f59f4d951e7f158cf35cde05e53b4.svg",
     "static/media/folder-a.svg": "/TechCore-Layout/static/media/folder-a.6ae0c4bd2f3101fe5930ab4e3cf79e96.svg",
     "static/media/folder.svg": "/TechCore-Layout/static/media/folder.8f71102a536cb2023b4d7c0d36d270fc.svg",
     "static/media/switcher.svg": "/TechCore-Layout/static/media/switcher.ec10f4304b6a44c64851b5895609d64a.svg",
     "static/media/close.svg": "/TechCore-Layout/static/media/close.d83bf8c7d3ac875ee5baa05ebb6c70f2.svg",
-    "main.834fe235.css.map": "/TechCore-Layout/static/css/main.834fe235.css.map",
-    "main.39a2bb2d.js.map": "/TechCore-Layout/static/js/main.39a2bb2d.js.map",
+    "main.af029f65.css.map": "/TechCore-Layout/static/css/main.af029f65.css.map",
+    "main.aabedd2d.js.map": "/TechCore-Layout/static/js/main.aabedd2d.js.map",
     "787.2975b55d.chunk.js.map": "/TechCore-Layout/static/js/787.2975b55d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.834fe235.css",
-    "static/js/main.39a2bb2d.js"
+    "static/css/main.af029f65.css",
+    "static/js/main.aabedd2d.js"
   ]
 }
