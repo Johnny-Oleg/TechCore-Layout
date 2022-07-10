@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import { Button, Form, Modal } from 'antd';
 
 import { createLocation } from '../../redux/reducers/locations/locationsSlice';
+// import MainModal from '../../components/ui/MainModal/MainModal';
 import PageLayout from '../../components/PageLayout/PageLayout';
 import PopupModalHeader from '../../components/ui/PopupModal/PopupModalHeader';
-import MainModalContent from '../../components/ui/MainModal/MainModalContent-dev';
+import MainModalContent from '../../components/ui/MainModal/MainModalContent';
 import PopupIcon from '../../components/ui/PopupIcon/PopupIcon';
 import warningIcon from '../../assets/images/popup-icons/warning.svg';
 import closeIcon from '../../assets/images/popup-icons/close.svg';
@@ -83,6 +84,12 @@ const Locations = () => {
             },
         })
     }
+
+    // const showCreateConfirm = () => MainModal({
+    //     methodName: 'Create Location',
+    //     formId: 'CreateForm',
+    //     okBtnText: 'Create'
+    // })
 
     return (
         <>

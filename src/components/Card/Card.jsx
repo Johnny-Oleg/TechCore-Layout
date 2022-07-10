@@ -19,6 +19,7 @@ import warningIcon from '../../assets/images/popup-icons/warning.svg';
 import deleteIcon from '../../assets/images/popup-icons/delete.svg';
 import closeIcon from '../../assets/images/popup-icons/close.svg';
 import style from './Card.module.css';
+import MainModalContent from '../ui/MainModal/MainModalContent';
 
 const Card = ({ location }) => {
     const [status, setStatus] = useState(location.default);
@@ -38,9 +39,73 @@ const Card = ({ location }) => {
       }
     }, [location])
 
-    const showEditConfirm = () => {
-        // TODO
-    }
+    const showEditConfirm = () => { // TODO
+        confirm({
+            title: <PopupModalHeader title="Edit Location" />,
+            icon: false,
+            content: <MainModalContent form={form} />,
+            closeIcon: <PopupIcon icon={closeIcon} />,
+            okText: 'Edit',
+            okType: 'primary',
+            centered: true,
+            closable: true,
+            confirmLoading: true,
+            width: '550px',
+            // maskStyle: {backgroundColor: '#242C48', opacity: '0.3'},
+            okButtonProps: {
+                form: 'editForm',
+                htmlType: 'submit',
+                style: {
+                    width: '93px',
+                    height: '40px',
+                    borderRadius: '6px',
+                    backgroundColor: '#00A0EC',
+                    color: '#FFFFFF',
+                    fontSize: '13px',
+                    fontWeight: '600',
+                    lineHeight: '16px',
+                    marginRight: '40px',
+                },
+            },
+            cancelButtonProps: {
+                style: {
+                    width: '93px',
+                    height: '40px',
+                    borderRadius: '6px',
+                    backgroundColor: '#AFB6C6',
+                    color: '#FFFFFF',
+                    fontSize: '13px',
+                    fontWeight: '600',
+                    lineHeight: '16px',
+                },
+            },
+
+            onOk() {
+                form.validateFields()
+                    .then((values) => {
+                        form.resetFields();
+                        dispatch(editLocation({ location: values, id: loc.id }));
+                        console.log(values);
+                    })
+                    .catch((info) => {
+                        console.log('Validate Failed:', info);
+                    });
+                console.log('OK', form, loc.id);
+            },
+
+            onCancel() {
+                console.log('Cancel');
+            },
+
+            bodyStyle: {
+                // width: '460px',
+                height: '862px',
+                padding: '0',
+                borderRadius: '12px',
+                boxShadow: `0px 8px 28px rgba(0, 0, 0, 0.05), 2px 2px 15px rgba(0, 44, 175, 0.05)`,
+            },
+        })
+    } // TODO
 
     const setStatusConfirm = loc => dispatch(setStatusLocation(loc.id));
     
@@ -158,8 +223,8 @@ const Card = ({ location }) => {
                             <img src={user.avatar} alt="avatar" />
                         </div>
                     ) : (
-                        <div className={style.avatarWrapper}>
-                            <Avatar user={user} key={user.userId} />
+                        <div className={style.avatarWrapper} key={user.userId}>
+                            <Avatar user={user} />
                         </div>
                     )
                 )}

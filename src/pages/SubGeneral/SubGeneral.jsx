@@ -5,7 +5,7 @@ import { Button, Form, Modal } from 'antd';
 import { createLocation } from '../../redux/reducers/locations/locationsSlice';
 import PageLayout from '../../components/PageLayout/PageLayout';
 import PopupModalHeader from '../../components/ui/PopupModal/PopupModalHeader';
-import MainModalContent from '../../components/ui/MainModal/MainModalContent-dev';
+import MainModalContent from '../../components/ui/MainModal/MainModalContent';
 import PopupIcon from '../../components/ui/PopupIcon/PopupIcon';
 import warningIcon from '../../assets/images/popup-icons/warning.svg';
 import closeIcon from '../../assets/images/popup-icons/close.svg';
